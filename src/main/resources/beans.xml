@@ -23,6 +23,8 @@
     <bean id="messageSendService" class="com.nhnacademy.edu.springframework.messagesender.MessageSendService">
     </bean>
 
+    <context:property-placeholder location="classpath:sender.properties" />
+
     <bean class="org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor" />
 
 </beans>
