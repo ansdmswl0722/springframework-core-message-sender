@@ -1,13 +1,15 @@
 package com.nhnacademy.edu.springframework.messagesender;
 
-import com.nhnacademy.edu.springframework.messagesender.MessageSender;
-import com.nhnacademy.edu.springframework.messagesender.User;
+import org.springframework.beans.factory.annotation.Autowired;
 
 public class MessageSendService {
-    private final MessageSender messageSender;
+    private MessageSender messageSender;
 
-    public MessageSendService(MessageSender messageSender) {
+    @Autowired
+    public void setSmsMessageSender(@SMS("smsMessageSender") MessageSender messageSender) {
+        System.out.println("setMessageSender invoked!");
         this.messageSender = messageSender;
+
     }
 
     public void doSendMessage() {
