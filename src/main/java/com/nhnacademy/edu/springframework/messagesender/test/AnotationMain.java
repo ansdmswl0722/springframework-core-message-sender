@@ -10,5 +10,9 @@ public class AnotationMain {
 
         MessageSendService messageSendService = context.getBean("messageSendService", MessageSendService.class);
         messageSendService.doSendMessage();
+
+
+
+        context.close();
     }
 }
