@@ -2,9 +2,11 @@ package com.nhnacademy.edu.springframework.messagesender;
 
 import com.nhnacademy.edu.springframework.messagesender.MessageSender;
 import com.nhnacademy.edu.springframework.messagesender.User;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
-@Component
+@Profile("real")
+@Component("messageSender")
 public class SmsMessageSender implements MessageSender {
 
     public SmsMessageSender() {
@@ -13,6 +15,7 @@ public class SmsMessageSender implements MessageSender {
     public void init() {
         System.out.println("SMS INIT------------------------");
     }
+
     @ElapsedTimeLog
     @Override
     public boolean sendMessage(User user, String message) {

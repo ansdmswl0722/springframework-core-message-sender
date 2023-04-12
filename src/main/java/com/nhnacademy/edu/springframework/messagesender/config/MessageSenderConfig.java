@@ -11,4 +11,16 @@ import org.springframework.context.annotation.*;
 @EnableAspectJAutoProxy(proxyTargetClass = true)
 public class MessageSenderConfig {
 
+    @Profile("real")
+    @Bean("name")
+    public String name2(){
+        return "Kim";
+    }
+
+    @Profile("dev")
+    @Bean("name")
+    public String name1(){
+        return "Moon";
+    }
+
 }
