@@ -13,8 +13,10 @@ public class SmsMessageSender implements MessageSender {
     public void init() {
         System.out.println("SMS INIT------------------------");
     }
+    @ElapsedTimeLog
     @Override
-    public void sendMessage(User user, String message) {
+    public boolean sendMessage(User user, String message) {
         System.out.println("SMS Message Sent to " + user.getPhoneNumber()+ ": " + message);
+        return true;
     }
 }

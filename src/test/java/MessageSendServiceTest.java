@@ -8,6 +8,8 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.springframework.test.util.ReflectionTestUtils;
 
+import static org.mockito.Matchers.any;
+import static org.mockito.Matchers.anyString;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -18,8 +20,10 @@ public class MessageSendServiceTest {
     void testMailMessageSender() {
         MessageSender messageSender = mock(MessageSender.class);
         messageSendService = new MessageSendService(messageSender);
+        when(messageSender.sendMessage(any(User.class), anyString())).thenReturn(false);
+        boolean actual = messageSendService.doSendMessage();
 
-
+        Assertions.assertThat(actual).isEqualTo(false);
 
     }
 

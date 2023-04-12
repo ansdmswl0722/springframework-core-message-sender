@@ -15,13 +15,16 @@ public class MessageSendService {
     private final MessageSender messageSender;
 
     @Autowired
-    public MessageSendService( @Qualifier("smsMessageSender") MessageSender messageSender) {
+    public MessageSendService(@Qualifier("smsMessageSender") MessageSender messageSender) {
         this.messageSender = messageSender;
     }
 
-    public void doSendMessage() {
+    public boolean doSendMessage() {
         User user = new User("ansdmswl0722@gmail.com","01012341234");
-        messageSender.sendMessage(user,name+"hihi");
+        return messageSender.sendMessage(user,name+"hihi");
+
 
     }
+
+
 }
